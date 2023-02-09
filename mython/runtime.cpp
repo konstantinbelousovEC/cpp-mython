@@ -55,11 +55,11 @@ namespace runtime {
     bool IsTrue(const ObjectHolder &object) {
         Object *ptr = nullptr;
         if ((ptr = object.TryAs<Bool>())) {
-            return dynamic_cast<Bool*>(ptr)->GetValue();
+            return static_cast<Bool*>(ptr)->GetValue();
         } else if ((ptr = object.TryAs<Number>())) {
-            return dynamic_cast<Number*>(ptr)->GetValue();
+            return static_cast<Number*>(ptr)->GetValue();
         } else if ((ptr = object.TryAs<String>())) {
-            return !dynamic_cast<String*>(ptr)->GetValue().empty();
+            return !static_cast<String*>(ptr)->GetValue().empty();
         }
         return false;
     }
