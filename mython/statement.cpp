@@ -60,7 +60,7 @@ namespace ast {
         std::ostream &output = context.GetOutputStream();
         for (size_t i = 0; i < arguments_.size(); i++) {
             ObjectHolder obj_holder = arguments_[i]->Execute(closure, context);
-            auto obj_ptr = obj_holder.Get();
+            runtime::Object* obj_ptr = obj_holder.Get();
             if (obj_ptr != nullptr) {
                 obj_ptr->Print(output, context);
             } else {
@@ -128,7 +128,7 @@ namespace ast {
     ObjectHolder Div::Execute(Closure &closure, Context &context) {
         auto lhs_ptr = lhs_->Execute(closure, context).TryAs<runtime::Number>();
         auto rhs_ptr = rhs_->Execute(closure, context).TryAs<runtime::Number>();
-        if (lhs_ptr && rhs_ptr)
+        if (lhs_ptr && rhs_ptr && rhs_ptr->GetValue() != 0)
             return runtime::ObjectHolder::Own(runtime::Number(lhs_ptr->GetValue() / rhs_ptr->GetValue()));
         throw std::runtime_error("Division was failed");
     }

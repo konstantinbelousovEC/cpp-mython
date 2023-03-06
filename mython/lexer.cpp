@@ -152,31 +152,25 @@ namespace parse {
         return token_;
     }
 
+    std::unordered_map<std::string, Token> Lexer::token_types_ = {
+            {"class"s, token_type::Class{}},
+            {"return"s, token_type::Return{}},
+            {"if"s, token_type::If{}},
+            {"else"s, token_type::Else{}},
+            {"def"s, token_type::Def{}},
+            {"print"s, token_type::Print{}},
+            {"and"s, token_type::And{}},
+            {"or"s, token_type::Or{}},
+            {"not"s, token_type::Not{}},
+            {"None"s, token_type::None{}},
+            {"True"s, token_type::True{}},
+            {"False"s, token_type::False{}}
+    };
+
+
     std::optional<parse::Token> Lexer::ReadKeyWord(const std::string& str) {
-        if (str == "class") {
-            return parse::token_type::Class{};
-        } else if (str == "return") {
-            return parse::token_type::Return{};
-        } else if (str == "if") {
-            return parse::token_type::If{};
-        } else if (str == "else") {
-            return parse::token_type::Else{};
-        } else if (str == "def") {
-            return parse::token_type::Def{};
-        } else if (str == "print") {
-            return parse::token_type::Print{};
-        } else if (str == "and") {
-            return parse::token_type::And{};
-        } else if (str == "or") {
-            return parse::token_type::Or{};
-        } else if (str == "not") {
-            return parse::token_type::Not{};
-        } else if (str == "None") {
-            return parse::token_type::None{};
-        } else if (str == "True") {
-            return parse::token_type::True{};
-        } else if (str == "False") {
-            return parse::token_type::False{};
+        if (token_types_.count(str) > 0) {
+            return token_types_[str];
         } else {
             return std::nullopt;
         }

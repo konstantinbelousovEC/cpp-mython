@@ -73,7 +73,7 @@ namespace runtime {
     }
 
     bool ClassInstance::HasMethod(const std::string &method, size_t argument_count) const {
-        auto method_ptr = cls_.GetMethod(method);
+        const Method* method_ptr = cls_.GetMethod(method);
         if (method_ptr == nullptr) {
             return false;
         } else if (method_ptr->formal_params.size() != argument_count) {
@@ -100,7 +100,7 @@ namespace runtime {
         if (!HasMethod(method, actual_args.size())) throw std::runtime_error("no method to call"s);
         Closure fields;
         fields[SELF] = ObjectHolder::Share(*this);
-        auto method_ptr = cls_.GetMethod(method);
+        const Method* method_ptr = cls_.GetMethod(method);
         for (size_t i = 0; i < actual_args.size(); ++i) {
             fields[method_ptr->formal_params[i]] = actual_args[i];
         }

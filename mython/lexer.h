@@ -7,6 +7,7 @@
 #include <string>
 #include <variant>
 #include <vector>
+#include <unordered_map>
 
 namespace parse {
 
@@ -106,6 +107,8 @@ namespace parse {
         void ExpectNext(const U& value);
 
     private:
+        static std::unordered_map<std::string, Token> token_types_;
+
         std::istream& input_;
         Token token_;
         bool initialized_ = false;
