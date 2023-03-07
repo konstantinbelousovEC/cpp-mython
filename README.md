@@ -444,7 +444,7 @@ Mython — язык с динамической типизацией. Перем
 
 ### Тесты.
 
-- [*lexer_test_open.cpp8](https://github.com/konstantinbelousovEC/cpp-mython/blob/main/mython/lexer_test_open.cpp) - набор тестов к лексичсекому анализатору
+- [*lexer_test_open.cpp8*](https://github.com/konstantinbelousovEC/cpp-mython/blob/main/mython/lexer_test_open.cpp) - набор тестов к лексичсекому анализатору
 - [*parse_test.cpp*](https://github.com/konstantinbelousovEC/cpp-mython/blob/main/mython/parse_test.cpp) - набор тестов к синтаксическому анализатору
 - [*runtime_test.cpp*](https://github.com/konstantinbelousovEC/cpp-mython/blob/main/mython/runtime_test.cpp) - набор тестов к runtime-модулю
 - [*statement_test.cpp*](https://github.com/konstantinbelousovEC/cpp-mython/blob/main/mython/statement_test.cpp) - набор тестов к узлам синтаксического дерева
