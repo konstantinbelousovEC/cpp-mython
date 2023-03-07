@@ -40,13 +40,13 @@
 Строковая константа в Mython — это последовательность произвольных символов, размещающаяся на одной строке и ограниченная двойными кавычками " или одинарными '. Поддерживается экранирование спецсимволов **'\n'**, **'\t'**, **'\\'** и **'\\"'**.
 
 Примеры строк в Mython:
-"hello"
-'world'
-'long string with a double quote " inside'
-"another long string with a single quote ' inside"
-"string with a double quote \\" inside"
-'string with a single quote \\' inside'
-'', "" — пустые строки.
+- "hello"
+- 'world'
+- 'long string with a double quote " inside'
+- "another long string with a single quote ' inside"
+- "string with a double quote \\" inside"
+- 'string with a single quote \\' inside'
+- '', "" — пустые строки.
 
 Строки в Mython — неизменяемые.
 
